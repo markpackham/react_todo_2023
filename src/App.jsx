@@ -49,7 +49,7 @@ export default function App() {
     });
   }
 
-  // The Return comes last
+  // The Return with JSX comes last
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
