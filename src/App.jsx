@@ -22,7 +22,15 @@ export default function App() {
     setNewItem("");
   }
 
-  function toggleTodo(id, completed) {}
+  function toggleTodo(id, completed) {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: completed };
+        }
+      });
+    });
+  }
 
   return (
     <>
