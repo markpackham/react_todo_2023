@@ -3,10 +3,21 @@ import "./styles.css";
 
 export default function App() {
   const [newItem, setNewItem] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    setTodos([...todos], {
+      id: crypto.randomUUID(),
+      title: newItem,
+      completed: false,
+    });
+  }
 
   return (
     <>
-      <form className="new-item-form" action="">
+      <form onSubmit={handleSubmit} className="new-item-form" action="">
         <div className="form-row">
           <label htmlFor="item">New Item</label>
           <input
