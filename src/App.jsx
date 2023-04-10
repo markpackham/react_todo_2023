@@ -23,12 +23,12 @@ export default function App() {
   }
 
   function toggleTodo(id, completed) {
+    console.log("Hello");
     setTodos((currentTodos) => {
       return currentTodos.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, completed: completed };
+          return { ...todo, completed };
         }
-
         return todo;
       });
     });
@@ -58,7 +58,7 @@ export default function App() {
                 <input
                   type="checkbox"
                   checked={todo.completed}
-                  onChange={(e) => toggleTodo(todo.id, e.target.checked)}
+                  onChange={(e) => toggleTodo(id, e.target.checked)}
                 />
                 {todo.title}
               </label>
