@@ -1,13 +1,7 @@
-export default function TodoItem({
-  id,
-  title,
-  completed,
-  toggleTodo,
-  deleteTodo,
-}) {
+export function TodoItem({ completed, id, title, toggleTodo, deleteTodo }) {
   return (
     <li>
-      <label htmlFor="">
+      <label>
         <input
           type="checkbox"
           checked={completed}
