@@ -23,14 +23,20 @@ export default function App() {
   }
 
   function toggleTodo(id, completed) {
-    console.log("Hello");
     setTodos((currentTodos) => {
       return currentTodos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, completed };
         }
+
         return todo;
       });
+    });
+  }
+
+  function deleteTodo(id) {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id);
     });
   }
 
@@ -62,7 +68,12 @@ export default function App() {
                 />
                 {todo.title}
               </label>
-              <button className="btn btn-danger">Delete</button>
+              <button
+                onClick={() => deleteTodo(todo.id)}
+                className="btn btn-danger"
+              >
+                Delete
+              </button>
             </li>
           );
         })}
