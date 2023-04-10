@@ -6,14 +6,7 @@ export default function TodoList({ todos }) {
       {todos.length === 0 && "No todos"}
 
       {todos.map((todo) => {
-        return (
-          <TodoItem
-            key={todo.id}
-            id={todo.id}
-            title={todo.title}
-            completed={completed.id}
-          />
-        );
+        return <TodoItem key={todo.id} {...todo} />;
       })}
     </ul>
   );
