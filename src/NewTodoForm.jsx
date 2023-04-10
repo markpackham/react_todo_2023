@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function NewTodoForm(props) {
-  props.addTodo;
+export default function NewTodoForm({ addTodo }) {
   const [newItem, setNewItem] = useState("");
 
   function handleSubmit(e) {
@@ -9,7 +8,7 @@ export default function NewTodoForm(props) {
 
     if (newItem === "") return;
 
-    props.addTodo(newItem);
+    addTodo(newItem);
 
     setNewItem("");
   }
