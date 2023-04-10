@@ -28,6 +28,8 @@ export default function App() {
         if (todo.id === id) {
           return { ...todo, completed: completed };
         }
+
+        return todo;
       });
     });
   }
