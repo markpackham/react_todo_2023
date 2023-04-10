@@ -4,12 +4,20 @@ import { TodoList } from "./TodoList";
 import "./styles.css";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  // ALWAYS PUT HOOKS at the TOP of the file!!!!
+  // A hook can't be conditional so no (if length > 0)
+  // The same number of hooks must run every single time
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    if (localValue == null) return [];
+    return JSON.parse(localValue);
+  });
 
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos));
   }, [todos]);
 
+  // Helper functions usually come after hooks
   function addTodo(title) {
     setTodos((currentTodos) => {
       return [
@@ -41,6 +49,7 @@ export default function App() {
     });
   }
 
+  // The Return comes last
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
