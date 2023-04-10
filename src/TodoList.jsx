@@ -1,4 +1,4 @@
-export default function TodoList() {
+export default function TodoList({ todos }) {
   return (
     <ul className="list">
       {todos.length === 0 && "No todos"}
@@ -10,12 +10,12 @@ export default function TodoList() {
               <input
                 type="checkbox"
                 checked={todo.completed}
-                onChange={(e) => toggleTodo(id, e.target.checked)}
+                // onChange={(e) => toggleTodo(id, e.target.checked)}
               />
               {todo.title}
             </label>
             <button
-              onClick={() => deleteTodo(todo.id)}
+              //   onClick={() => deleteTodo(todo.id)}
               className="btn btn-danger"
             >
               Delete
