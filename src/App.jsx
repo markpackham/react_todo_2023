@@ -18,20 +18,7 @@ export default function App() {
         },
       ];
     });
-
-    setTodos((currentTodos) => {
-      return [
-        ...currentTodos,
-        {
-          id: crypto.randomUUID(),
-          title: newItem,
-          completed: false,
-        },
-      ];
-    });
   }
-
-  console.log(todos);
 
   return (
     <>
@@ -50,20 +37,17 @@ export default function App() {
 
       <h1 className="header">Todo List</h1>
       <ul className="list">
-        <li>
-          <label htmlFor="">
-            <input type="checkbox" name="" id="" />
-            Item 1
-          </label>
-          <button className="btn btn-danger">Delete</button>
-        </li>
-        <li>
-          <label htmlFor="">
-            <input type="checkbox" name="" id="" />
-            Item 2
-          </label>
-          <button className="btn btn-danger">Delete</button>
-        </li>
+        {todos.map((todo) => {
+          return (
+            <li key={todo.id}>
+              <label htmlFor="">
+                <input type="checkbox" checked={todo.completed} />
+                {todo.title}
+              </label>
+              <button className="btn btn-danger">Delete</button>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
